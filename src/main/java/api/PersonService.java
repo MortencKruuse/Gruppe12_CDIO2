@@ -1,7 +1,7 @@
 package api;
 
 import controller.PersonController;
-import data.DTO.Person;
+import data.DTO.UserDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
@@ -12,12 +12,13 @@ import javax.ws.rs.core.MediaType;
 public class PersonService {
     private static PersonController personController = new PersonController();
     @GET
-    public Person getPerson(){
-        return personController.getPerson();
+    public void getPerson(){
+
     }
 
     @PUT
-    public Person updatePerson(Person person){
-        return personController.updatePerson(person);
+    public void updatePerson(UserDTO userDTO){
+
+
     }
 }

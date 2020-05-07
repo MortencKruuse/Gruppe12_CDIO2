@@ -1,0 +1,74 @@
+package data.DTO;
+
+import java.util.List;
+
+public class UserDTO {
+    int userID;
+    private String username;
+    private String ini;
+    private String cpr;
+    private String password;
+    List<String> roles;
+
+    public UserDTO() {
+    }
+
+    public UserDTO(int userID, String username, String ini, String cpr, String password, List<String> roles) {
+        this.userID = userID;
+        this.username = username;
+        this.ini = ini;
+        this.cpr = cpr;
+        this.password = password;
+        this.roles = roles;
+    }
+
+    public int getUserID() {
+        return userID;
+    }
+
+    public void setUserID(int userID) {
+        this.userID = userID;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getIni() {
+        return ini;
+    }
+
+    public void setIni(String ini) {
+        this.ini = ini;
+    }
+
+    public String getCpr() {
+        return cpr;
+    }
+
+    public void setCpr(String cpr) {
+        this.cpr = cpr;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public List<String> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(List<String> roles) {
+        this.roles = roles;
+    }
+}
+
+

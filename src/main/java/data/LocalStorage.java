@@ -1,18 +1,17 @@
 package data;
 
-import data.DTO.Person;
+import data.DTO.UserDTO;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 public class LocalStorage {
-    public static Person morten  = new Person("Morten",21);
+    static List<String> roles = new ArrayList<>(Arrays.asList("Pharmaceut"));
+   private static UserDTO userDTO = new UserDTO(2,"Bubbi","Bub","123456-7890","1234",roles);
+   private List<UserDTO> list;
 
-    public Person getMorten(){
-        return morten;
-    }
-
-    public Person setMorten(Person person)
-    {
-        morten = person;
-        return morten;
-    }
+   public UserDTO getUserDTO(String username){
+       return userDTO;
+   }
 }
-
