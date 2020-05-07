@@ -12,13 +12,12 @@ import javax.ws.rs.core.MediaType;
 public class PersonService {
     private static PersonController personController = new PersonController();
     @GET
-    public void getPerson(){
-
+    public String welcome(){
+        return "Hello user";
     }
-
     @PUT
-    public void updatePerson(UserDTO userDTO){
-
+    public void createUser(@PathParam("name") String name){
 
     }
+
 }
