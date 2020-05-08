@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>rwgersdf</title>
+    <title>CDIO 2</title>
 </head>
 <body>
     <h1>Opret bruger</h1>
@@ -11,15 +11,15 @@
         <input type = "submit" value="Login">
     </form>
     -->
-    <form method="POST" action="rest/person/">
+    <form method="POST" action="">
         <p>Brugernavn</p>
-        <input type = "text" name="uname">
+        <input type = "text" id="uname" name="uname">
         <p>Initialer</p>
-        <input type = "text">
+        <input type = "text" id="ini">
         <p>Cpr-nummer</p>
-        <input type = "text">
+        <input type = "text" id="cpr">
         <p>Password</p>
-        <input type = "text" name ="Password">
+        <input type = "text" id="password" name ="Password">
         <p>Rolle</p>
         <input type = "radio" id = "Pharmaceut" name = "Roles" value = "Pharmaceut">
         <label for="Pharmaceut"> Pharmaceut</label><br>
@@ -31,5 +31,6 @@
         <label for="Laborant"> Laborant</label><br>
         <input type = "submit" value="Opret bruger">
     </form>
+    <form></form>
 </body>
 </html>

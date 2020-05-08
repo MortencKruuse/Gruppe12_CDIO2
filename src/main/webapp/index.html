@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>rwgersdf</title>
+    <title>CDIO 2</title>
 </head>
 <body>
     <h1>Opret bruger</h1>
@@ -11,15 +11,15 @@
         <input type = "submit" value="Login">
     </form>
     -->
-    <form method="POST" action="rest/person/">
+    <form method="POST" action="" name ="createUser">
         <p>Brugernavn</p>
         <input type = "text" id="uname" name="uname">
         <p>Initialer</p>
-        <input type = "text">
+        <input type = "text" id="ini"name="ini">
         <p>Cpr-nummer</p>
-        <input type = "text">
+        <input type = "text" id="cpr" name="cpr">
         <p>Password</p>
-        <input type = "text" name ="Password">
+        <input type = "text" id="password" name ="Password">
         <p>Rolle</p>
         <input type = "radio" id = "Pharmaceut" name = "Roles" value = "Pharmaceut">
         <label for="Pharmaceut"> Pharmaceut</label><br>
@@ -29,7 +29,26 @@
         <label for="Produktionsleder"> Produktionsleder</label><br>
         <input type = "radio" id = "Laborant" name = "Roles" value = "Laborant">
         <label for="Laborant"> Laborant</label><br>
-        <input type = "submit" value="Opret bruger">
+        <input type = "submit" value="Opret bruger"
+        onclick="document.applets.createUser(uname,ini,cpr,password,Roles)">
     </form>
+    <form method="POST" actions="rest">
+    </form>
+<script>
+    document.getElementById("uname")
+    $
+</script>
+    <APPLET CODE="PersonService.class"
+            NAME="myApplet"
+            HEIGHT=100 WIDTH=100>
+    </APPLET>
+
+
+
+
+
+
+
+
 </body>
 </html>

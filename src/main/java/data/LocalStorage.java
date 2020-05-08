@@ -2,19 +2,37 @@ package data;
 
 import data.DTO.UserDTO;
 
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class LocalStorage {
-    static List<String> roles = new ArrayList<>(Arrays.asList("Pharmaceut"));
-   private static UserDTO userDTO = new UserDTO(2,"Bubbi","Bub","123456-7890","1234",roles);
+    public static int id = 0;
    private List<UserDTO> list;
 
-   public UserDTO getUserDTO(String username){
-       return userDTO;
+   public LocalStorage(){
+       list = new ArrayList<>();
+       //TODO: 08-05-2020  Sejr lav createfile her
    }
+
+
+   public void createUser(String name, String ini, String cpr, String password, List<String> list){
+       UserDTO newUser = new UserDTO(id,name,ini,cpr,password,list);
+       this.list.add(newUser);
+       id++;
+   }
+
+    private void createFile(String file_user_properties, ArrayList<String> user_ArrayList)
+            throws IOException {
+        FileWriter writer = new FileWriter(file_user_properties + ".txt");
+        int size = user_ArrayList.size();
+        for (int i=0;i<size;i++) {
+            String str = user_ArrayList.get(i).toString();
+            writer.write(str);
+            if(i < size-1)
+                writer.write("\n");
+        }
+        writer.close();
+    }
 }
-
-
-//Commit for Sejr
