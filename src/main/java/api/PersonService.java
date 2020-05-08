@@ -1,41 +1,40 @@
 package api;
 
 import controller.PersonController;
-import data.DTO.UserDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.util.Properties;
+import java.io.*;
+import java.util.ArrayList;
+
 
 @Path("person")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PersonService {
     private static PersonController personController = new PersonController();
+
     @GET
-    public String welcome(){
+    public String welcome() {
         return "Hello user";
     }
+
     @PUT
-    public void createUser(@PathParam("name") String name){
+    public void createUser(@PathParam("name") String name) {
 
 
-        try {
-            Properties properties = new Properties();
-            properties.setProperty(createUser("Skab mig og gem mig");
-            File file = new File("users.properties");
-            FileOutputStream fileOut = new FileOutputStream(file);
-            properties.store(fileOut, "Users");
-            fileOut.close();
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
     }
 
+    private void createFile(String file_user_properties, ArrayList<String> user_ArrayList)
+            throws IOException {
+        FileWriter writer = new FileWriter(file_user_properties + ".txt");
+        int size = user_ArrayList.size();
+        for (int i=0;i<size;i++) {
+            String str = user_ArrayList.get(i).toString();
+            writer.write(str);
+            if(i < size-1)
+            writer.write("\n");
+        }
+        writer.close();
+    }
 }
