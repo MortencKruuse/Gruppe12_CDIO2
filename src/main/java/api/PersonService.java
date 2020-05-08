@@ -24,6 +24,7 @@ public class PersonService {
 
 
     }
+
     private void createFile(String file_user_properties, ArrayList<String> user_ArrayList)
             throws IOException {
         FileWriter writer = new FileWriter(file_user_properties + ".txt");
