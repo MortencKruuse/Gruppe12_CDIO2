@@ -8,7 +8,8 @@ public class UserDTO {
     private String ini;
     private String cpr;
     private String password;
-    List<String> roles;
+    //private List<String> roles;
+    private String role;
 
     public UserDTO() {
     }
@@ -19,7 +20,7 @@ public class UserDTO {
         this.ini = ini;
         this.cpr = cpr;
         this.password = password;
-        this.roles = roles;
+        this.role = roles.get(0);
     }
 
     public int getUserID() {
@@ -62,23 +63,24 @@ public class UserDTO {
         this.password = password;
     }
 
-    public List<String> getRoles() {
-        return roles;
-    }
+    //public List<String> getRoles() {
+        //return roles;
+    //}
 
-    public void setRoles(List<String> roles) {
-        this.roles = roles;
-    }
+    //public void setRoles(List<String> roles) {
+        //this.roles = roles;
+    //}
     @Override
     public String toString(){
         StringBuilder str = new StringBuilder("User ID: " + userID
                 + "\n\tUsername: " + username
                 + "\n\tInitials: " + ini
                 + "\n\tCPR: " + cpr
-                + "\n\tPassword: " + password);
-        for (int i = 0; i < roles.size(); i++) {
+                + "\n\tPassword: " + password
+                + "\n\tRole: " + role);
+        /*for (int i = 0; i < roles.size(); i++) {
             str.append("\n\tRole ").append(i).append(" ").append(roles.get(i));
-        }
+        }*/
         return str.toString();
     }
 }

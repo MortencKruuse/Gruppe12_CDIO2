@@ -12,7 +12,7 @@ public class PersonController {
 
     public PersonController() {
         localStorage = new LocalStorage();
-        List<String> roles = new ArrayList<String>();
+        List<String> roles = new ArrayList<>();
         roles.add("Admin");
         localStorage.createUser("Bubbers", "Boob", "12345678", "iLikBoobs",roles);
     }
