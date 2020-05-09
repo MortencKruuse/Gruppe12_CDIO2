@@ -8,7 +8,7 @@ JSONGet = function (url, id) {
     request.onreadystatechange = function (){
         if (this.readyState === 4 && this.status === 200){
             var currentObj = JSON.parse(this.responseText);
-            var txt = "<table>"+
+            var txt = "<table border='1'>"+
                 "<th>Username</th>" +
                 "<th>Initialer</th>"+
                 "<th>CPR</th>"+
