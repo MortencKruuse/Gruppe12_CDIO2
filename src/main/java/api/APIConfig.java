@@ -6,7 +6,7 @@ import javax.ws.rs.core.Application;
 
 
 
-@ApplicationPath("/rest")
+@ApplicationPath("rest")
 public class APIConfig extends Application {
 
 }
