@@ -7,7 +7,7 @@ import javax.ws.rs.core.MediaType;
 public class TestService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
-    public String helloWorld (){
+    public String helloWorld() {
         return "Hello world";
     }
 
@@ -15,18 +15,18 @@ public class TestService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     @Path("name/{name}")
-    public String helloName (@PathParam("name") String name){
+    public String helloName(@PathParam("name") String name) {
         return "hello " + name;
     }
+
     // rest/test/form (html form) -> hello Magnus
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("form")
-    public String helloForm (@FormParam("name") String name){
-        return "hello "+name;
+    public String helloForm(@FormParam("name") String name) {
+        return "hello " + name;
     }
-
 
 
     // rest/test/query?name=Magnus?
@@ -34,7 +34,7 @@ public class TestService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Produces(MediaType.APPLICATION_JSON)
     @Path("query")
-    public String helloQuery (@QueryParam("name") String name){
+    public String helloQuery(@QueryParam("name") String name) {
         return "hello " + name;
     }
 }
