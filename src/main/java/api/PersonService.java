@@ -28,9 +28,7 @@ public class PersonService {
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("create-user")
     public void createUser() {
-        List<String> list= new ArrayList<>();
-        list.add(role);
-        personController.createUser(name, ini, cpr, password, list);
+        personController.createUser(name, ini, cpr, password, role);
     }
 
     @GET

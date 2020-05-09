@@ -17,9 +17,9 @@ public class LocalStorage {
    }
 
 
-   public void createUser(String name, String ini, String cpr, String password, List<String> list){
-       UserDTO newUser = new UserDTO(id,name,ini,cpr,password,list);
-       this.list.add(newUser);
+   public void createUser(String name, String ini, String cpr, String password, String role){
+       UserDTO newUser = new UserDTO(id,name,ini,cpr,password,role);
+       list.add(newUser);
        id++;
    }
 

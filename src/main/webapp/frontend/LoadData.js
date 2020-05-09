@@ -1,6 +1,7 @@
 function getAllUsers(id) {
     JSONGet("rest/person/get-users",id)
 }
+
 JSONGet = function (url, id) {
     const obj = { table: "customers", limit: 20 };
     const param = JSON.stringify(obj);
@@ -9,6 +10,7 @@ JSONGet = function (url, id) {
         if (this.readyState === 4 && this.status === 200){
             var currentObj = JSON.parse(this.responseText);
             var txt = "<table border='1'>"+
+                "<th>User ID</th>" +
                 "<th>Username</th>" +
                 "<th>Initialer</th>"+
                 "<th>CPR</th>"+
@@ -16,6 +18,7 @@ JSONGet = function (url, id) {
                 "<th>Role</th>";
             for (x in currentObj){
                 txt += "<tr>" +
+                    "<td>"+ currentObj[x].userID +"</td>" +
                     "<td>"+ currentObj[x].username +"</td>" +
                     "<td>"+ currentObj[x].ini +"</td>" +
                     "<td>"+ currentObj[x].cpr +"</td>" +
@@ -24,7 +27,6 @@ JSONGet = function (url, id) {
                     "</tr>"
             }
             txt += "</table>";
-            //document.getElementById(id).innerHTML = "<p>" + this.responseText + "</p>";
             document.getElementById(id).innerHTML = txt;
         }
     };
