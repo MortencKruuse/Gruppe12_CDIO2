@@ -8,7 +8,7 @@ public class TestService {
     @GET
     @Produces(MediaType.APPLICATION_JSON)
     public String helloWorld() {
-        return "Hello world";
+        return "Hello World";
     }
 
     // rest/test/name/{name}
