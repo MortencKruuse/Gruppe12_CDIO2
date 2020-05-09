@@ -1,20 +1,22 @@
-/*package api;
+package api;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.PersonController;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.applet.Applet;
-import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
-
-
 @Path("person")
-public class PersonService extends Applet {
+public class PersonService {
+    private String name;
+    private String ini;
+    private String cpr;
+    private String password;
+    private String role;
     private static PersonController personController = new PersonController();
-
 
     @GET
     @Produces(MediaType.APPLICATION_JSON)
@@ -22,16 +24,27 @@ public class PersonService extends Applet {
         return "Hello user";
     }
 
-    @GET
+    @PUT
     @Consumes(MediaType.APPLICATION_JSON)
-    @Produces(MediaType.APPLICATION_JSON)
-    @Path("Create-User")
-    public void createUser(String name, String ini, String cpr, String password, String role) {
+    @Path("create-user")
+    public void createUser() {
         List<String> list= new ArrayList<>();
         list.add(role);
         personController.createUser(name, ini, cpr, password, list);
     }
 
+    @GET
+    @Produces(MediaType.APPLICATION_JSON)
+    @Path("get-users")
+    public String getUsers(){
+        ObjectMapper objectMapper = new ObjectMapper();
+        try {
+            return objectMapper.writeValueAsString(personController.getUsers());
+        } catch (JsonProcessingException e){
+            e.printStackTrace();
+            return "Could not retrieve users";
+        }
+    }
+
 
 }
-*/

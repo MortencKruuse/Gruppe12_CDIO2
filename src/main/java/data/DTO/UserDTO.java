@@ -69,6 +69,18 @@ public class UserDTO {
     public void setRoles(List<String> roles) {
         this.roles = roles;
     }
+    @Override
+    public String toString(){
+        StringBuilder str = new StringBuilder("User ID: " + userID
+                + "\n\tUsername: " + username
+                + "\n\tInitials: " + ini
+                + "\n\tCPR: " + cpr
+                + "\n\tPassword: " + password);
+        for (int i = 0; i < roles.size(); i++) {
+            str.append("\n\tRole ").append(i).append(" ").append(roles.get(i));
+        }
+        return str.toString();
+    }
 }
 
 

@@ -1,5 +1,5 @@
-function getUser(id) {
-    JSONGet("rest/test",id)
+function getAllUsers(id) {
+    JSONGet("rest/person/get-users",id)
 }
 JSONGet = function (url, id) {
     const request = new XMLHttpRequest();
@@ -8,6 +8,6 @@ JSONGet = function (url, id) {
             document.getElementById(id).innerHTML = "<p>" + this.responseText + "</p>";
         }
     };
-    request.open("GET",url,true)
+    request.open("GET",url,true);
     request.send();
 };

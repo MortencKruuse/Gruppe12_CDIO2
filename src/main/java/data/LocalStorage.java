@@ -35,4 +35,7 @@ public class LocalStorage {
         }
         writer.close();
     }
+    public List<UserDTO> getUserDTO(){
+       return list;
+    }
 }
