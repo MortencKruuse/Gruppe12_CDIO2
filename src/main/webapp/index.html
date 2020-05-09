@@ -11,7 +11,15 @@
         <input type = "submit" value="Login">
     </form>
     -->
-    <form method="POST" action="" name ="createUser">
+    <form method="POST" action="" name ="welcome" id="welcome" style="position: absolute; left: 50px; top: 50px;">
+        <p>WELCOME TO THIS FANTASTIC SOFTWARE</p>
+
+        <button type="button" onclick="goToCreateUser()">Opret en bruger</button>
+
+        <button type="button" onclick="goToDeleteUser()">Slet en bruger</button>
+    </form>
+
+    <form method="POST" action="" name ="createUser" id="createUser" style="position: absolute; left: 50px; top: 50px; visibility: hidden">
         <p>Brugernavn</p>
         <input type = "text" id="uname" name="uname">
         <p>Initialer</p>
@@ -29,15 +37,41 @@
         <label for="Produktionsleder"> Produktionsleder</label><br>
         <input type = "radio" id = "Laborant" name = "Roles" value = "Laborant">
         <label for="Laborant"> Laborant</label><br>
-        <input type = "submit" value="Opret bruger"
-        onclick="document.applets.createUser(uname,ini,cpr,password,Roles)">
+        <button type="button" onclick="finishCreateUser()">Opret bruger</button>
     </form>
-    <form method="POST" actions="rest">
+    <form method="POST" action="" id="finish" style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
+        <p>You did it, you crazy son of a bitch</p>
+
+        <button type="button" onclick="goToWelcomeFromFinish()">Tilbage til start</button>
     </form>
-<script>
-    document.getElementById("uname")
-    $
-</script>
+    <form method="POST" action="" id="deleteUser" style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
+        <p>Who do you want to delete?</p>
+
+        <button type="button" onclick="goToWelcomeFromDelete()">Tilbage til start</button>
+    </form>
+
+    <script>
+        function goToCreateUser() {
+            document.getElementById("welcome").style.visibility = "hidden";
+            document.getElementById("createUser").style.visibility = "visible";
+        }
+        function finishCreateUser() {
+            document.getElementById("createUser").style.visibility = "hidden";
+            document.getElementById("finish").style.visibility = "visible";
+        }
+        function goToWelcomeFromFinish() {
+            document.getElementById("finish").style.visibility = "hidden";
+            document.getElementById("welcome").style.visibility = "visible";
+        }
+        function goToWelcomeFromDelete() {
+            document.getElementById("deleteUser").style.visibility = "hidden";
+            document.getElementById("welcome").style.visibility = "visible";
+        }
+        function goToDeleteUser() {
+            document.getElementById("welcome").style.visibility = "hidden";
+            document.getElementById("deleteUser").style.visibility = "visible";
+        }
+    </script>
     <APPLET CODE="PersonService.class"
             NAME="myApplet"
             HEIGHT=100 WIDTH=100>
