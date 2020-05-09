@@ -11,7 +11,7 @@ import java.util.List;
 
 
 
-@Path("rest")
+@Path("person")
 @Consumes(MediaType.APPLICATION_JSON)
 @Produces(MediaType.APPLICATION_JSON)
 public class PersonService extends Applet {

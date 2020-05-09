@@ -1,10 +1,12 @@
 package api;
 
-import org.glassfish.jersey.server.ResourceConfig;
 
 import javax.ws.rs.ApplicationPath;
-import java.util.ArrayList;
+import javax.ws.rs.core.Application;
 
-@ApplicationPath("rest")
-public class APIConfig extends ResourceConfig {
+
+
+@ApplicationPath("/rest")
+public class APIConfig extends Application {
+
 }
