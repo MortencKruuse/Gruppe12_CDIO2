@@ -29,7 +29,6 @@ public class PersonService {
     @Produces(MediaType.APPLICATION_JSON)
     @Path("create-user")
     public Response createUser(UserDTO user) {
-        //personController.createUser(name, ini, cpr, password, role);
         personController.createUser(user.getUsername(), user.getIni(),user.getCpr(), user.getPassword(),user.getRole());
         return Response.status(201).build();
     }

@@ -2,6 +2,30 @@ function getAllUsers(divElement) {
     JSONGet("rest/person/get-users", divElement)
 }
 
+function postAnUser(){
+    var username = document.getElementById("uname").value;
+
+    var ini =      document.getElementById("ini").value;
+    var cpr =      document.getElementById("cpr").value;
+    var password = document.getElementById("password").value;
+    var role = "Dummy";
+    if(document.getElementById("Pharmaceut").checked){
+        role = "Pharmaceut";
+    }
+
+    if(document.getElementById("Admin").checked){
+        role = "Admin";
+    }
+
+    if(document.getElementById("Produktionsleder").checked){
+        role = "Produktionsleder";
+    }
+    if(document.getElementById("Laborant").checked){
+        role = "Laborant";
+    }
+    JSONPostUser("rest/person/create-user", username, ini, cpr, password, role);
+}
+
 JSONGet = function (url, div) {
     const obj = {table: "Users", limit: 20};
     const param = JSON.stringify(obj);
@@ -39,7 +63,7 @@ JSONGet = function (url, div) {
 JSONDelete = function (div,id) {
     const request = new XMLHttpRequest();
     request.open("PUT", "rest/person/delete-user", true);
-    request.setRequestHeader('Content-type','application/json; charset=utf-8');
+    request.setRequestHeader('Content-Type','application/json; charset=utf-8');
     request.onload = function () {
         if (request.readyState === 4){
             getAllUsers(div);
@@ -50,3 +74,25 @@ JSONDelete = function (div,id) {
 
 
 };
+
+JSONPostUser = function (url, username, ini, cpr, password, role){
+    const request = new XMLHttpRequest();
+    request.open("POST", url, true);
+    var user = {"userID": 0, //Dummy id
+        "username":username,
+        "ini":ini,
+        "cpr":cpr,
+        "password":password,
+        "role":role
+    }
+    var sendStr = JSON.stringify(user);
+    request.setRequestHeader('Content-Type','application/json; charset=utf-8');
+    request.setRequestHeader('Content-Length',sendStr.length);
+    request.onreadystatechange = function() {
+        if(request.readyState == 4 && request.status == 200) {
+            alert(request.responseText);
+        }
+    }
+    request.send(sendStr);
+
+}
