@@ -4,6 +4,7 @@
     <link rel="stylesheet" href="frontend-style/userTable.css">
 </head>
 <body>
+<script type="text/javascript" src="frontend/JSON_Actions.js"></script>
 
 
 <h1 id="title">Opret bruger</h1>
@@ -44,19 +45,21 @@
 <form method="POST" action="" id="finish"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
     <p>You did it, you crazy son of a bitch</p>
-
     <button type="button" onclick="goToWelcomeFromFinish()">Tilbage til start</button>
 </form>
 <form method="POST" action="" id="deleteUser"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
+<<<<<<< HEAD
     <p>Se alle disse flotte brugere</p>
     <div id="userList">
+=======
+    <p>Who do you want to delete?</p>
+    <div id="userList"></div>
+>>>>>>> WorkingState
 
-    </div>
 
     <button type="button" onclick="goToWelcomeFromDelete()">Tilbage til start</button>
 </form>
-<script type="text/javascript" src="frontend/LoadData.js"></script>
 <script>
     function goToCreateUser() {
         document.getElementById("welcome").style.visibility = "hidden";
@@ -86,10 +89,7 @@
 
     }
 </script>
-<APPLET CODE="PersonService.class"
-        NAME="myApplet"
-        HEIGHT=100 WIDTH=100>
-</APPLET>
+
 </body>
 <head>
     <meta charset="UTF-8">
