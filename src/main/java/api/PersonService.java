@@ -3,7 +3,6 @@ package api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.PersonController;
-import data.DTO.TestDTO;
 import data.DTO.UserDTO;
 
 import javax.ws.rs.*;
