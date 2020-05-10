@@ -1,8 +1,8 @@
 .gradle
 .idea
 build
-out
-target
+out/
+target/
 
 # Compiled class file
 *.class
