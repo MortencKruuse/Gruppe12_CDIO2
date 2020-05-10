@@ -17,7 +17,7 @@
 
     <button type="button" onclick="goToCreateUser()">Opret en bruger</button>
 
-    <button type="button" onclick="goToDeleteUser()">Slet en bruger</button>
+    <button type="button" onclick="goToDeleteUser()">Se brugere</button>
 </form>
 
 <form method="POST" action="" name="createUser" id="createUser"
@@ -49,7 +49,7 @@
 </form>
 <form method="POST" action="" id="deleteUser"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
-    <p>Who do you want to delete?</p>
+    <p>Se alle disse flotte brugere</p>
     <div id="userList">
 
     </div>
@@ -81,7 +81,7 @@
     function goToDeleteUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("deleteUser").style.visibility = "visible";
-        document.getElementById("title").innerHTML = "Delete a user";
+        document.getElementById("title").innerHTML = "Brugerliste";
         getAllUsers("userList");
 
     }
