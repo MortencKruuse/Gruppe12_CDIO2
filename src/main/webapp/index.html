@@ -18,7 +18,7 @@
 
     <button type="button" onclick="goToCreateUser()">Opret en bruger</button>
 
-    <button type="button" onclick="goToDeleteUser()">Se brugere</button>
+    <button type="button" onclick="goToDeleteUser()">Se brugere & slet brugere</button>
 </form>
 
 <form method="POST" action="" name="createUser" id="createUser"
@@ -46,15 +46,15 @@
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
     <p>You did it, you crazy son of a bitch</p>
 
+
+
     <button type="button" onclick="goToWelcomeFromFinish()"><bs>Tilbage til start</bs></button>
 </form>
 <form method="POST" action="" id="deleteUser"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
-    <p>Se alle disse flotte brugere</p>
-    <div id="userList">
 
-
-
+    <p>Who do you want to delete?</p>
+    <div id="userList"></div>
     <button type="button" onclick="goToWelcomeFromDelete()"><bs>Tilbage til start</bs></button>
 </form>
 <script>

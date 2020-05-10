@@ -23,8 +23,7 @@ public class LocalStorage {
        id++;
    }
    public void deleteUser(int id){
-       list.remove(id);
-       System.out.println(id);
+       list.removeIf(user -> user.getUserID() == id);
    }
 
     private void createFile(String file_user_properties, ArrayList<String> user_ArrayList)
