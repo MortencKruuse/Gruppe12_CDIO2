@@ -7,7 +7,7 @@
 <script type="text/javascript" src="frontend/JSON_Actions.js"></script>
 
 
-<h1 id="title">Opret bruger</h1>
+<h1 id="title">Welcome</h1>
 <!--
     <form method="POST" action="authentication.html">
         <input type = "submit" value="Login">
@@ -22,7 +22,10 @@
 </form>
 
 <form method="POST" action="" name="createUser" id="createUser"
-      style="position: absolute; left: 50px; top: 50px; visibility: hidden">
+      style="position: absolute; left: 50px; top: 70px; visibility: hidden">
+
+    <button type="button" onclick="returnToStart();">Tilbage til start</button>
+
     <p>Brugernavn</p>
     <input type="text" id="uname" name="uname">
     <p>Initialer</p>
@@ -40,7 +43,7 @@
     <label for="Produktionsleder"> Produktionsleder</label><br>
     <input type="radio" id="Laborant" name="Roles" value="Laborant">
     <label for="Laborant"> Laborant</label><br>
-    <button type="button" onclick="postAnUser();">Opret bruger</button>
+    <button type="button" onclick="finishCreateUser();">Opret bruger</button>
 </form>
 <form method="POST" action="" id="finish"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
@@ -74,6 +77,12 @@
         document.getElementById("createUser").style.visibility = "visible";
     }
 
+    function returnToStart() {
+        document.getElementById("welcome").style.visibility = "visible";
+        document.getElementById("createUser").style.visibility = "hidden";
+        resetValues();
+    }
+
     function finishCreateUser() {
         if (!document.getElementById("uname").value == "" &&
             !document.getElementById("ini").value == "" &&
@@ -84,6 +93,7 @@
              document.getElementById("Produktionsleder").checked == true ||
              document.getElementById("Laborant").checked == true))
         {
+            postAnUser();
 
             resetValues();
 
@@ -103,12 +113,14 @@
     function goToWelcomeFromDelete() {
         document.getElementById("deleteUser").style.visibility = "hidden";
         document.getElementById("welcome").style.visibility = "visible";
+        document.getElementById("title").innerHTML = "Welcome";
+
     }
 
     function goToDeleteUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("deleteUser").style.visibility = "visible";
-        document.getElementById("title").innerHTML = "Brugerliste";
+        document.getElementById("title").innerHTML = "User list";
         getAllUsers("userList");
 
     }
