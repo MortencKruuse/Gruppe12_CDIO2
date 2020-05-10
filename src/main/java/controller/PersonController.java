@@ -25,6 +25,9 @@ public class PersonController {
     public void createUser(String name, String ini, String cpr, String password, String role) {
         localStorage.createUser(name, ini, cpr, password, role);
     }
+    public void deleteUser(int ID) {
+        localStorage.deleteUser(ID);
+    }
 
     public List<UserDTO> getUsers(){
         return localStorage.getUserDTO();

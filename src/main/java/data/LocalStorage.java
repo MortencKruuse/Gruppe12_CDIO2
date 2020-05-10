@@ -22,6 +22,9 @@ public class LocalStorage {
        list.add(newUser);
        id++;
    }
+   public void deleteUser(int ID){
+       list.remove(ID);
+   }
 
     private void createFile(String file_user_properties, ArrayList<String> user_ArrayList)
             throws IOException {
