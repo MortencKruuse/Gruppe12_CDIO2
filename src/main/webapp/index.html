@@ -112,12 +112,14 @@
     function goToWelcomeFromDelete() {
         document.getElementById("deleteUser").style.visibility = "hidden";
         document.getElementById("welcome").style.visibility = "visible";
+        document.getElementById("title").innerHTML = "Welcome";
+
     }
 
     function goToDeleteUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("deleteUser").style.visibility = "visible";
-        document.getElementById("title").innerHTML = "Brugerliste";
+        document.getElementById("title").innerHTML = "User list";
         getAllUsers("userList");
 
     }
