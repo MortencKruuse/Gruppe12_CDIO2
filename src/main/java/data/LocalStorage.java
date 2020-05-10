@@ -22,8 +22,9 @@ public class LocalStorage {
        list.add(newUser);
        id++;
    }
-   public void deleteUser(int ID){
-       list.remove(ID);
+   public void deleteUser(int id){
+       list.remove(id);
+       System.out.println(id);
    }
 
     private void createFile(String file_user_properties, ArrayList<String> user_ArrayList)

@@ -52,8 +52,8 @@ public class PersonService {
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("delete-user")
-    public void deleteUser(@QueryParam("ID") int ID){
-        personController.deleteUser(ID);
+    public void deleteUser(@QueryParam("id") int id){
+        personController.deleteUser(id);
     }
 
 

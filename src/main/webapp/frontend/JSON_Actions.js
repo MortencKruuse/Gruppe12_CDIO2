@@ -25,8 +25,7 @@ JSONGet = function (url, div) {
                     "<td>" + objects[i].cpr + "</td>" +
                     "<td>" + objects[i].password + "</td>" +
                     "<td>" + objects[i].role + "</td>" +
-                    "<td><button type=\"button\" onclick=\"JSONDelete("
-                    + objects[i].userID + div + ")\">Delete user</button></td>" +
+                    "<td><button type=\"button\" onclick=\"JSONDelete(" + div + "," + objects[i].userID + ")\">Delete user</button></td>" +
                     "</tr>"
             }
             txt += "</table>";
@@ -37,16 +36,16 @@ JSONGet = function (url, div) {
     request.send("x= " + param);
 };
 
-JSONDelete = function (id,div) {
-    alert("Success at delete object " + id);
+JSONDelete = function (div,id) {
     const request = new XMLHttpRequest();
     request.open("PUT", "rest/person/delete-user", true);
     request.setRequestHeader('Content-type','application/json; charset=utf-8');
     request.onload = function () {
-        if (request.readyState === 4 && request.responseText === "201"){
-            getAllUsers(div)
+        if (request.readyState === 4){
+            getAllUsers(div);
         }
     };
+    alert(id)
     request.send(JSON.stringify(id));
 
 
