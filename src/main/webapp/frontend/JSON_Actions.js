@@ -29,7 +29,7 @@ JSONGet = function (url, div) {
                     "</tr>"
             }
             txt += "</table>";
-            document.getElementById(div).innerHTML = txt;
+            document.getElementById("userList").innerHTML = txt;
         }
     };
     request.open("GET", url, true);
@@ -38,15 +38,13 @@ JSONGet = function (url, div) {
 
 JSONDelete = function (div,id) {
     const request = new XMLHttpRequest();
-    request.open("PUT", "rest/person/delete-user", true);
+    request.open("PUT", "rest/person/delete-user/?id=" + id, true);
     request.setRequestHeader('Content-type','application/json; charset=utf-8');
     request.onload = function () {
-        if (request.readyState === 4){
-            getAllUsers(div);
+        //alert("readyState=" + request.readyState+ "\nstatus=" +  request.status);
+        if (request.readyState === 4 && request.status === 204){
+            getAllUsers();
         }
     };
-    alert(id)
-    request.send(JSON.stringify(id));
-
-
+    request.send();
 };
