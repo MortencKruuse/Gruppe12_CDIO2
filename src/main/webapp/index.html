@@ -7,7 +7,7 @@
 <script type="text/javascript" src="frontend/JSON_Actions.js"></script>
 
 
-<h1 id="title">Opret bruger</h1>
+<h1 id="title">Welcome</h1>
 <!--
     <form method="POST" action="authentication.html">
         <input type = "submit" value="Login">
@@ -103,12 +103,14 @@
     function goToWelcomeFromDelete() {
         document.getElementById("deleteUser").style.visibility = "hidden";
         document.getElementById("welcome").style.visibility = "visible";
+        document.getElementById("title").innerHTML = "Welcome";
+
     }
 
     function goToDeleteUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("deleteUser").style.visibility = "visible";
-        document.getElementById("title").innerHTML = "Brugerliste";
+        document.getElementById("title").innerHTML = "User list";
         getAllUsers("userList");
 
     }
