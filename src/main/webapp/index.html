@@ -43,7 +43,7 @@
     <label for="Produktionsleder"> Produktionsleder</label><br>
     <input type="radio" id="Laborant" name="Roles" value="Laborant">
     <label for="Laborant"> Laborant</label><br>
-    <button type="button" onclick="postAnUser();">Opret bruger</button>
+    <button type="button" onclick="finishCreateUser();">Opret bruger</button>
 </form>
 <form method="POST" action="" id="finish"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
@@ -93,6 +93,7 @@
              document.getElementById("Produktionsleder").checked == true ||
              document.getElementById("Laborant").checked == true))
         {
+            postAnUser();
 
             resetValues();
 
