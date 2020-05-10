@@ -3,11 +3,11 @@ package api;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import controller.PersonController;
+import data.DTO.UserDTO;
 
 import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
-import java.util.ArrayList;
-import java.util.List;
+import javax.ws.rs.core.Response;
 
 @Path("person")
 public class PersonService {
@@ -18,17 +18,20 @@ public class PersonService {
     private String role;
     private static PersonController personController = new PersonController();
 
-    @GET
-    @Produces(MediaType.APPLICATION_JSON)
-    public String welcome() {
-        return "Hello user";
-    }
+    //@GET
+    //@Produces(MediaType.APPLICATION_JSON)
+    //public String welcome() {
+    //    return "Hello user";
+    //}
 
-    @PUT
+    @POST
     @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     @Path("create-user")
-    public void createUser() {
-        personController.createUser(name, ini, cpr, password, role);
+    public Response createUser(UserDTO user) {
+        //personController.createUser(name, ini, cpr, password, role);
+        personController.createUser(user.getUsername(), user.getIni(),user.getCpr(), user.getPassword(),user.getRole());
+        return Response.status(201).build();
     }
 
     @GET
