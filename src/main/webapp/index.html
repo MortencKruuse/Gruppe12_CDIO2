@@ -29,7 +29,7 @@
     <p>Cpr-nummer</p>
     <input type="text" id="cpr" name="cpr">
     <p>Password</p>
-    <input type="text" id="password" name="Password">
+    <input type="text" id="password" name="password">
     <p>Rolle</p>
     <input type="radio" id="Pharmaceut" name="Roles" value="Pharmaceut">
     <label for="Pharmaceut"> Pharmaceut</label><br>
@@ -58,14 +58,41 @@
 </form>
 <script type="text/javascript" src="frontend/LoadData.js"></script>
 <script>
+    function resetValues(){
+        document.getElementById("uname").value = "";
+        document.getElementById("ini").value = "";
+        document.getElementById("cpr").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("Pharmaceut").checked = false;
+        document.getElementById("Admin").checked = false;
+        document.getElementById("Produktionsleder").checked = false;
+        document.getElementById("Laborant").checked = false;
+    }
+
     function goToCreateUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("createUser").style.visibility = "visible";
     }
 
     function finishCreateUser() {
-        document.getElementById("createUser").style.visibility = "hidden";
-        document.getElementById("finish").style.visibility = "visible";
+        if (!document.getElementById("uname").value == "" &&
+            !document.getElementById("ini").value == "" &&
+            !document.getElementById("cpr").value == "" &&
+            !document.getElementById("password").value == "" &&
+            (document.getElementById("Pharmaceut").checked == true ||
+             document.getElementById("Admin").checked == true ||
+             document.getElementById("Produktionsleder").checked == true ||
+             document.getElementById("Laborant").checked == true))
+        {
+
+            resetValues();
+
+            document.getElementById("createUser").style.visibility = "hidden";
+            document.getElementById("finish").style.visibility = "visible";
+        }
+        else {
+            alert("Please fill out all the fields!");
+        }
     }
 
     function goToWelcomeFromFinish() {
