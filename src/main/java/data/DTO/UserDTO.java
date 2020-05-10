@@ -8,6 +8,7 @@ public class UserDTO {
     private String ini;
     private String cpr;
     private String password;
+    //TODO: Make it possible to handle multiple roles
     //private List<String> roles;
     private String role;
 

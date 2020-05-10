@@ -11,18 +11,7 @@ import javax.ws.rs.core.Response;
 
 @Path("person")
 public class PersonService {
-    private String name;
-    private String ini;
-    private String cpr;
-    private String password;
-    private String role;
     private static PersonController personController = new PersonController();
-
-    //@GET
-    //@Produces(MediaType.APPLICATION_JSON)
-    //public String welcome() {
-    //    return "Hello user";
-    //}
 
     @POST
     @Consumes(MediaType.APPLICATION_JSON)
@@ -46,12 +35,11 @@ public class PersonService {
         }
     }
 
+    //TODO: Change to POST
     @PUT
     @Consumes(MediaType.APPLICATION_JSON)
     @Path("delete-user")
     public void deleteUser(@QueryParam("id") int id){
         personController.deleteUser(id);
     }
-
-
 }
