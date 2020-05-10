@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <link rel="stylesheet" href="frontend-style/userTable.css">
 </head>
 <body>
 
 
-<h1>Opret bruger</h1>
+<h1 id="title">Opret bruger</h1>
 <!--
     <form method="POST" action="authentication.html">
         <input type = "submit" value="Login">
     </form>
     -->
 <form method="POST" action="" name="welcome" id="welcome" style="position: absolute; left: 50px; top: 50px;">
-    <p>WELCOME TO THIS FANTASTIC SOFTWARE</p>
+    <p><strong>WELCOME TO THIS FANTASTIC SOFTWARE</strong></p>
 
     <button type="button" onclick="goToCreateUser()">Opret en bruger</button>
 
@@ -80,7 +81,8 @@
     function goToDeleteUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("deleteUser").style.visibility = "visible";
-        getUser("userList");
+        document.getElementById("title").innerHTML = "Delete a user";
+        getAllUsers("userList");
 
     }
 </script>
