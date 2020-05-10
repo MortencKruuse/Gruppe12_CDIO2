@@ -3,5 +3,14 @@ th, td {
     text-align: left;
     border-bottom: white;
     border-top: black;
+    background: white;
 }
-
+body {
+    background: lightblue;
+}
+p {
+    font-family: "Lucida Bright";
+}
+bs {
+    text-effect: outline;
+}
