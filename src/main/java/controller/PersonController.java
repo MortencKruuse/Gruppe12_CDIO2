@@ -10,6 +10,7 @@ public class PersonController {
 
     public PersonController() {
         localStorage = new LocalStorage();
+        createUser("TestAdmin", "ADM", "123443-2112", "1234", "Admin");
     }
 
     public void createUser(String name, String ini, String cpr, String password, String role) {
