@@ -7,7 +7,7 @@
 <script type="text/javascript" src="frontend/JSON_Actions.js"></script>
 
 
-<h1 id="title">Opret bruger</h1>
+<h1 id="title">Welcome</h1>
 <!--
     <form method="POST" action="authentication.html">
         <input type = "submit" value="Login">
@@ -22,7 +22,10 @@
 </form>
 
 <form method="POST" action="" name="createUser" id="createUser"
-      style="position: absolute; left: 50px; top: 50px; visibility: hidden">
+      style="position: absolute; left: 50px; top: 70px; visibility: hidden">
+
+    <button type="button" onclick="returnToStart();"><--</button>
+
     <p>Brugernavn</p>
     <input type="text" id="uname" name="uname">
     <p>Initialer</p>
@@ -72,6 +75,12 @@
     function goToCreateUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("createUser").style.visibility = "visible";
+    }
+
+    function returnToStart() {
+        document.getElementById("welcome").style.visibility = "visible";
+        document.getElementById("createUser").style.visibility = "hidden";
+        resetValues();
     }
 
     function finishCreateUser() {
