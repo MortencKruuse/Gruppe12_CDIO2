@@ -30,7 +30,7 @@
     <p>Cpr-nummer</p>
     <input type="text" id="cpr" name="cpr">
     <p>Password</p>
-    <input type="text" id="password" name="Password">
+    <input type="text" id="password" name="password">
     <p>Rolle</p>
     <input type="radio" id="Pharmaceut" name="Roles" value="Pharmaceut">
     <label for="Pharmaceut"> Pharmaceut</label><br>
@@ -45,7 +45,12 @@
 <form method="POST" action="" id="finish"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
     <p>You did it, you crazy son of a bitch</p>
+<<<<<<< HEAD
     <button type="button" onclick="goToWelcomeFromFinish()">Tilbage til start</button>
+=======
+
+    <button type="button" onclick="goToWelcomeFromFinish()"><bs>Tilbage til start</bs></button>
+>>>>>>> 0a644be664c76f7a952aff82737809cd096560fc
 </form>
 <form method="POST" action="" id="deleteUser"
       style="position: absolute; visibility: hidden; left: 50px; top: 50px; z-index: 200;">
@@ -58,17 +63,44 @@
 >>>>>>> WorkingState
 
 
-    <button type="button" onclick="goToWelcomeFromDelete()">Tilbage til start</button>
+    <button type="button" onclick="goToWelcomeFromDelete()"><bs>Tilbage til start</bs></button>
 </form>
 <script>
+    function resetValues(){
+        document.getElementById("uname").value = "";
+        document.getElementById("ini").value = "";
+        document.getElementById("cpr").value = "";
+        document.getElementById("password").value = "";
+        document.getElementById("Pharmaceut").checked = false;
+        document.getElementById("Admin").checked = false;
+        document.getElementById("Produktionsleder").checked = false;
+        document.getElementById("Laborant").checked = false;
+    }
+
     function goToCreateUser() {
         document.getElementById("welcome").style.visibility = "hidden";
         document.getElementById("createUser").style.visibility = "visible";
     }
 
     function finishCreateUser() {
-        document.getElementById("createUser").style.visibility = "hidden";
-        document.getElementById("finish").style.visibility = "visible";
+        if (!document.getElementById("uname").value == "" &&
+            !document.getElementById("ini").value == "" &&
+            !document.getElementById("cpr").value == "" &&
+            !document.getElementById("password").value == "" &&
+            (document.getElementById("Pharmaceut").checked == true ||
+             document.getElementById("Admin").checked == true ||
+             document.getElementById("Produktionsleder").checked == true ||
+             document.getElementById("Laborant").checked == true))
+        {
+
+            resetValues();
+
+            document.getElementById("createUser").style.visibility = "hidden";
+            document.getElementById("finish").style.visibility = "visible";
+        }
+        else {
+            alert("Please fill out all the fields!");
+        }
     }
 
     function goToWelcomeFromFinish() {
